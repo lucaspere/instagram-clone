@@ -2,13 +2,18 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
-import Avatar from './component/Avatar';
+import AuthorRow from './component/AuthorRow';
 
-console.log(Constants.statusBarHeight)
 const App = () => {
   return (
     <View style={styles.container}>
-      <Avatar initials="FL" size={35} backgroundColor={'blue'} />
+      <AuthorRow
+        fullname={"Matheus Pereira"}
+        linkText={"Comments"}
+        onPressLinkText={() => {
+          console.log("oi")
+        }}
+      />
     </View>
   );
 }
