@@ -3,20 +3,19 @@ import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
 
-import Card from './component/Card';
+import CardList from './component/CardList';
 
 
 const App = () => {
+
+  const items = [
+    { id: 0, author: "Bob Ross" },
+    { id: 1, author: "Chuck Norris" }
+ ];
+
   return (
     <View style={styles.container}>
-      <Card
-        fullname={"Matheus Pereira"}
-        linkText={"Comments"}
-        onPressLinkText={() => {
-          console.log("oi")
-        }}
-        image={{ uri: 'https://unsplash.it/600/600' }}
-      />
+      <CardList items={items}/>
     </View>
   );
 }
