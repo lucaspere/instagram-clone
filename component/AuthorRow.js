@@ -41,8 +41,9 @@ const styles = StyleSheet.create({
       marginHorizontal: 0,
       marginLeft: 5,
    }
-})
-AuthorRow.PropTypes = {
+});
+
+AuthorRow.propTypes = {
    fullname: PropTypes.string.isRequired,
    linkText: PropTypes.string.isRequired,
    onPressLinkText: PropTypes.func.isRequired,

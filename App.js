@@ -2,17 +2,20 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
-import AuthorRow from './component/AuthorRow';
+
+import Card from './component/Card';
+
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <AuthorRow
+      <Card
         fullname={"Matheus Pereira"}
         linkText={"Comments"}
         onPressLinkText={() => {
           console.log("oi")
         }}
+        image={{ uri: 'https://unsplash.it/600/600' }}
       />
     </View>
   );
@@ -22,8 +25,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
     marginTop: Constants.statusBarHeight
   },
 });
