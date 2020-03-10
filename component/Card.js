@@ -9,7 +9,7 @@ const Card = ({ fullname, image, linkText, onPressLinkText }) => {
    const [loading, setLoading] = React.useState(true);
 
    return (
-      <View style={styles.cardContainer}>
+      <View>
          <AuthorRow
             fullname={fullname}
             linkText={linkText}
@@ -24,9 +24,6 @@ const Card = ({ fullname, image, linkText, onPressLinkText }) => {
 };
 
 const styles = StyleSheet.create({
-   cardContainer: {
-
-   },
    image: {
       aspectRatio: 1,
       backgroundColor: 'rgba(0,0,0,0.02)'

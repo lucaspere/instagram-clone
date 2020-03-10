@@ -4,12 +4,17 @@ import Constants from 'expo-constants';
 
 
 import Feed from './screens/Feed';
+import CommentInput from './component/CommentInput';
+import CommentList from './component/CommentList';
+import NavigationBar from './component/NavigationBar';
 
 const App = () => {
 
   return (
     <View style={styles.container}>
-      <Feed style={styles.feed} />
+      <NavigationBar title="Lucas" leftText="Queridinho Lucas" />
+      <CommentInput />
+      <CommentList items={[..."rffe".repeat(3)]}/>
     </View>
   );
 }
