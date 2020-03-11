@@ -18,11 +18,11 @@ const NavigationBar = ({ title, leftText, onPressLeftText }) => {
 const styles = StyleSheet.create({
    container: {
       marginTop: Constants.statusBarHeight,
-   height: 40,
-   borderBottomWidth: StyleSheet.hairlineWidth,
-   borderBottomColor: 'rgba(0,0,0,0.1)',
-   alignItems: 'center',
-   justifyContent: 'center',
+      height: 40,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: 'rgba(0,0,0,0.1)',
+      alignItems: 'center',
+      justifyContent: 'center',
    },
    title: {
       fontWeight: '500'
