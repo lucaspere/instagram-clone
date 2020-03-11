@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   feed: {
     flex: 1,
     marginTop:
-      Platform.OS === 'ios' && platformVersion < 11
+      Platform.OS === 'android' || platformVersion < 11
         ? Constants.statusBarHeight
         : 0
   },
