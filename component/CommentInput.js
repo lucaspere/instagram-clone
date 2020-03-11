@@ -9,9 +9,9 @@ const CommentInput = ({ onSubmit, placeholder }) => {
 
    const handleSubmitEditing = () => {
 
-      if(!text) return;
+      if(!textInput) return;
 
-      onSubmit(text);
+      onSubmit(textInput);
       setTextInput('');
    }
 
