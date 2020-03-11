@@ -2,6 +2,7 @@ import {
    ActivityIndicator,
    Text,
    ViewPropTypes,
+   StyleSheet,
    SafeAreaView,
 } from 'react-native';
 import PropTypes from 'prop-types';
@@ -18,37 +19,43 @@ const Feed = (props) => {
    const [items, setItems] = React.useState([]);
 
    React.useEffect(() => {
-      fetchImages((err, data) => {
-         if(err) {
-            console.log(err)
-            return setError({
-               isError: true,
-               errorMessage: 'Falha ao carregar a imagem'
-            })
-         }
 
-         setItems(data);
-         setLoading(false);
-      })
-   });
+      const abortController = new AbortController();
+      const signal = abortController.signal;
+
+      fetchImages(setItems, setLoading, setError, signal);
+
+      return () => abortController.abort();
+
+   }, [error, items, loading]);
 
    const { style } = props;
 
    if (loading) {
-      return <ActivityIndicator size="large" />
+      return <ActivityIndicator style={{ marginTop: style.marginTop }} size="large" />
    }
 
    if (error.isError) {
-      return <Text>{error.errorMessage}</Text>
+      return <Text style={[style, styles.errorMessage]}>{error.errorMessage}</Text>
    }
 
    return (
       <SafeAreaView style={style}>
-         <CardList items={items} />
+         <CardList
+            items={items}
+            onPressComments={props.onPressComments}
+            commentsForItem={props.commentsForItem}
+         />
       </SafeAreaView>
    )
 }
 
+const styles = StyleSheet.create({
+   errorMessage: {
+      fontSize: 22,
+      textAlign: 'center'
+   }
+})
 Feed.propTypes = {
    style: ViewPropTypes.style
 }
